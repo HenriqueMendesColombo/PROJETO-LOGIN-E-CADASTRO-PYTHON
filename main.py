@@ -5,17 +5,7 @@ import bancodef as bc
 connect = sql.connect("/home/henrique/Documents/banco.db")
 cursor = connect.cursor()
 
-try:
-    cursor.execute("""CREATE TABLE IF NOT EXISTS banco(
-               id INTEGER PRIMARY KEY AUTOINCREMENT, 
-               name TEXT NOT NULL, 
-               email TEXT NOT NULL UNIQUE, 
-               senha TEXT NOT NULL 
-               )
-               """)
-    connect.commit()
-except sql.OperationalError as erro:
-    print("Erro:", erro)
+bc.Tabela_SQL()
 
 while True:
     menu = int(input("""

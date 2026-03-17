@@ -4,6 +4,19 @@ import bcrypt
 connect = sql.connect("/home/henrique/Documents/banco.db")
 cursor = connect.cursor()
 
+def Tabela_SQL():
+    try:
+        cursor.execute("""CREATE TABLE IF NOT EXISTS banco(
+               id INTEGER PRIMARY KEY AUTOINCREMENT, 
+               name TEXT NOT NULL, 
+               email TEXT NOT NULL UNIQUE, 
+               senha TEXT NOT NULL 
+               )
+               """)
+        connect.commit()
+    except sql.OperationalError as erro:
+        print("Erro:", erro)
+
 def Cadastrar():
     nome = str(input("Nome: ").strip())
     email = str(input("Email: ").strip())
