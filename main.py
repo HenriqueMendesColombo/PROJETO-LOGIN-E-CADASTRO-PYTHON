@@ -2,7 +2,7 @@ import sqlite3 as sql
 import bcrypt 
 import bancodef as bc
 
-connect = sql.connect("/home/henrique/Documents/banco.db")
+connect = sql.connect("banco.db")
 cursor = connect.cursor()
 
 bc.Tabela_SQL()
